@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheather</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100vh;
+        background-color: hsl(241.43deg 95.45% 8.63%);
+        font-family: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    header {
+        display: flex;
+        position: relative;
+    }
+
+    .logo {
+        display: flex;
+        padding-block: 24px;
+        padding-inline: 85px;
+    }
+
+    .icon-units {
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+        gap: 6px;
+        right: 103px;
+        position: absolute;
+        top: 27px;
+        width: 83px;
+        color: lightgray;
+        background-color: hsl(240deg 26% 19.61%);
+        border: none;
+        padding: 6px 6px;
+        border-radius: 6px;
+        height: 37px;
+        cursor: pointer;
+    }
+
+    .heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    #center-heading {
+        margin: auto;
+        padding-block: 30px;
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .s-box {
+        width: 415px;
+        height: 37px;
+        border: none;
+        border-radius: 5px 5px 5px 5px;
+        padding-block: 22px;
+        padding-inline: 46px;
+        background-color: hsl(240deg 26% 19.61%);
+        color: white;
+    }
+
+    #s-btn {
+        width: 69px;
+        height: 38px;
+        border-radius: 5px 5px 5px 5px;
+        background-color: hsl(234.29deg 67.12% 57.06%);
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: 12px;
+    }
+
+    #s-bar {
+        position: absolute;
+        top: 31vh;
+        left: 36vw;
+        margin-left: -15px;
+    }
+
+    section {
+        margin-top: 40px;
+        display: flex;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    #count-port {
+        display: flex;
+        position: absolute;
+        color: white;
+        top: 49vh;
+        right: 28vw;
+        font-size: 174px;
+
+    }
+
+    #deg-sing {
+        display: flex;
+        position: absolute;
+        color: white;
+        top: 49vh;
+        right: 28vw;
+        font-size: 53px;
+    }
+
+
+
+    .back-logo {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 800px;
+        height: 286px;
+        background-image: url(assets/images/bg-today-large.svg);
+    }
+
+    .wheather-text {
+        color: white;
+        margin-bottom: 4px;
+
+    }
+
+    .wheather-text2 {
+        color: lightgray;
+    }
+
+    .sun {
+        display: flex;
+        width: 200px;
+        height: 200px;
+    }
+
+    .left-colon-text {
+        margin-left: 15px;
+
+    }
+
+    .right-colon-text {
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
+        margin-left: auto;
+        font-size: 150px;
+        margin-top: 15px;
+        color: white;
+        font-style: italic;
+    }
+
+    .boxes {
+        display: flex;
+        justify-content: space-between;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .box1 {
+        background-color: hsl(240deg 26% 19.61%);
+        width: 184px;
+        height: 105px;
+        border-radius: 15px;
+        margin-top: 15px;
+        color: white;
+        border: 2px solid hsl(238.13deg 26.23% 23.92%);
+    }
+
+    .box-heading1 {
+        margin-block: 12px;
+        margin-left: 26px;
+    }
+
+    .box1-cnt {
+        margin-left: 20px;
+    }
+
+    .right-colon-head {
+        color: whitesmoke;
+        font-size: 20px;
+    }
+
+    .mid-heading-L-S {
+        margin-block: 30px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        font-family: Arial, Helvetica, sans-serif;
+        gap: 6px;
+    }
+
+    .card1 {
+        background-color: hsl(240deg 26% 19.61%);
+        width: 90px;
+        height: 110px;
+        border-radius: 8px;
+        color: white;
+        border: 2px solid hsl(238.13deg 26.23% 23.92%);
+        padding: 0px 8px;
+    }
+
+    .bttm {
+        display: flex;
+    }
+
+    .last-h3 {
+        margin-left: auto;
+        margin-right: 0px;
+        margin-bottom: 4px;
+    }
+
+    .last-h {
+        margin-left: 0px;
+        margin-bottom: 4px;
+    }
+
+    .first-h {
+        margin-left: 30px;
+        margin-top: 5px;
+    }
+
+    .card1 img {
+        width: 50px;
+        margin-left: 19px;
+        margin-block: 7px;
+    }
+
+    .btn-d-slect {
+        width: 88px;
+        color: lightgray;
+        background-color: hsl(241.76deg 22.08% 30.2%);
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        height: 37px;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .right-colon {
+        width: 28%;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(240deg 26% 19.61%);
+        border-radius: 21px;
+        margin-left: 27px;
+    }
+
+    .timing-clouds {
+        margin: 16px -7px;
+    }
+
+    .head-section {
+        position: relative;
+        display: flex;
+        margin-inline: 30px;
+        align-items: center;
+        margin-block: 9px;
+    }
+
+    .img-time1 {
+        display: flex;
+        align-items: center;
+        background-color: hsl(240deg 21.67% 23.53%);
+        border-radius: 10px;
+        border: none;
+        width: 80%;
+        margin-left: 37px;
+        border: 1px solid #ffffff52;
+        padding: 10px;
+        margin-bottom: 8px;
+        margin-block: 11px;
+
+    }
+
+    #rain-cloud {
+        width: 35px;
+        height: 36px;
+        display: flex;
+    }
+
+    .cloud-time1 {
+        color: white;
+    }
+
+    .deg {
+        margin-left: auto;
+        color: whitesmoke;
+
+    }
+</style>
+
+<body>
+
+    <div class="main">
+        <div class="head">
+            <header><a
+                    href="https://meteobox.com/germany/?gad_source=1&gad_campaignid=406650380&gbraid=0AAAAAD_MHvj5cu0MYVb2r0MUkl3jSIjO9&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CHlBhPRrFGN7PKPT7BDjMlIPF0ZzI_zRr1fPYv6MkE6BwoM25Ec3j0aAjs3EALw_wcB"><img
+                        class="logo" src="assets/images/logo.svg" alt=""></a>
+                <div class="btn"> <button class="icon-units"><img src="assets/images/icon-units.svg" alt="">
+                        <p class="unint"> units <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8"
+                                fill="none" viewBox="0 0 13 8">
+                                <path fill="#fff"
+                                    d="M6.309 7.484 1.105 2.316c-.175-.14-.175-.421 0-.597l.704-.668a.405.405 0 0 1 .597 0l4.219 4.148 4.184-4.148c.175-.176.457-.176.597 0l.703.668c.176.176.176.457 0 .597L6.906 7.484a.405.405 0 0 1-.597 0Z" />
+                            </svg></p>
+                    </button>
+                </div>
+            </header>
+        </div>
+        <div class="heading">
+            <h1 id="center-heading">How's the sky looking today.?</h1>
+        </div>
+        <main class="input">
+            <div class="search-box">
+                <svg id="s-bar" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="none"
+                    viewBox="0 0 21 21">
+                    <path fill="#D4D3D9"
+                        d="M19.844 18.82c.195.196.195.508 0 .664l-.899.899c-.156.195-.468.195-.664 0l-4.726-4.727a.63.63 0 0 1-.117-.351v-.508c-1.446 1.21-3.282 1.953-5.313 1.953A8.119 8.119 0 0 1 0 8.625C0 4.172 3.633.5 8.125.5c4.453 0 8.125 3.672 8.125 8.125 0 2.031-.781 3.906-1.992 5.313h.508c.117 0 .234.078.351.156l4.727 4.726ZM8.125 14.875a6.243 6.243 0 0 0 6.25-6.25c0-3.438-2.813-6.25-6.25-6.25a6.243 6.243 0 0 0-6.25 6.25 6.219 6.219 0 0 0 6.25 6.25Z" />
+                </svg><input class="s-box" placeholder="Search for a place..." type="search">
+                <button id="s-btn">Search</button>
+            </div>
+        </main>
+        <section>
+            <div class="left-colon">
+                <div class="back-logo">
+                    <div class="left-colon-text">
+                        <h1 class="wheather-text">Berlin, Germen</h1>
+                        <p class="wheather-text2">Tuesday,Aug 5, 2025</p>
+                    </div>
+                    <div class="right-colon-text">
+                        <img class="sun" src="assets/images/icon-sunny.webp" alt="">
+                        <h1 class="right-colon-text">20°</h1>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="box1">
+                        <h3 class="box-heading1">Feels like</h3>
+                        <h1 class="box1-cnt">18°</h1>
+                    </div>
+                    <div class="box1">
+                        <h3 class="box-heading1">Humidity</h3>
+                        <h1 class="box1-cnt">46%</h1>
+                    </div>
+                    <div class="box1">
+                        <h3 class="box-heading1">Wind</h3>
+                        <h1 class="box1-cnt">14km/h</h1>
+                    </div>
+                    <div class="box1">
+                        <h3 class="box-heading1">Precipitation</h3>
+                        <h1 class="box1-cnt">0 mm</h1>
+                    </div>
+                </div>
+                <h1 class="mid-heading-L-S">Daily forecast</h1>
+                <div class="cards">
+                    <div class="card1">
+                        <p class="first-h">Teu</p>
+                        <img src="assets/images/icon-rain.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">20°</p>
+                            <p class="last-h3">14°</p>
+                        </div>
+                    </div>
+                    <div class="card1">
+                        <p class="first-h">Wed</p>
+                        <img src="assets/images/icon-drizzle.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">21°</p>
+                            <p class="last-h3">15°</p>
+                        </div>
+                    </div>
+                    <div class="card1">
+                        <p class="first-h">Thur</p>
+                        <img src="assets/images/icon-sunny.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">24°</p>
+                            <p class="last-h3">14°</p>
+                        </div>
+                    </div>
+                    <div class="card1">
+                        <p class="first-h">Fri</p>
+                        <img src="assets/images/icon-partly-cloudy.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">25°</p>
+                            <p class="last-h3">13°</p>
+                        </div>
+                    </div>
+                    <div class="card1">
+                        <p class="first-h">Sat</p>
+                        <img src="assets/images/icon-storm.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">21°</p>
+                            <p class="last-h3">15°</p>
+                        </div>
+                    </div>
+                    <div class="card1">
+                        <p class="first-h">Sun</p>
+                        <img src="assets/images/icon-snow.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">25°</p>
+                            <p class="last-h3">16°</p>
+                        </div>
+                    </div>
+                    <div class="card1">
+                        <p class="first-h">Mon</p>
+                        <img src="assets/images/icon-fog.webp" alt="">
+                        <div class="bttm">
+                            <p class="last-h">24°</p>
+                            <p class="last-h3">15°</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-colon">
+                <div class="head-section">
+                    <header class="right-colon-head">Horely forecast</header>
+                    <button class="btn-d-slect">Tuesday <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8"
+                            fill="none" viewBox="0 0 13 8">
+                            <path fill="#fff"
+                                d="M6.309 7.484 1.105 2.316c-.175-.14-.175-.421 0-.597l.704-.668a.405.405 0 0 1 .597 0l4.219 4.148 4.184-4.148c.175-.176.457-.176.597 0l.703.668c.176.176.176.457 0 .597L6.906 7.484a.405.405 0 0 1-.597 0Z" />
+                        </svg></button>
+                </div>
+                <div class="timing-clouds">
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-overcast.webp" alt="">
+                        <p class="cloud-time1">3pm</p>
+                        <div class="deg">
+                            <p class="deg-1">20°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-partly-cloudy.webp" alt="">
+                        <p class="cloud-time1">4pm</p>
+                        <div class="deg">
+                            <p class="deg-1">20°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-sunny.webp" alt="">
+                        <p class="cloud-time1">5pm</p>
+                        <div class="deg">
+                            <p class="deg-1">20°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-overcast.webp" alt="">
+                        <p class="cloud-time1">6pm</p>
+                        <div class="deg">
+                            <p class="deg-1">19°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-snow.webp" alt="">
+                        <p class="cloud-time1">7pm</p>
+                        <div class="deg">
+                            <p class="deg-1">18°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-fog.webp" alt="">
+                        <p class="cloud-time1">8pm</p>
+                        <div class="deg">
+                            <p class="deg-1">18°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-snow.webp" alt="">
+                        <p class="cloud-time1">9pm</p>
+                        <div class="deg">
+                            <p class="deg-1">17°</p>
+                        </div>
+                    </div>
+                    <div class="img-time1">
+                        <img id="rain-cloud" src="assets/images/icon-overcast.webp" alt="">
+                        <p class="cloud-time1">10pm</p>
+                        <div class="deg">
+                            <p class="deg-1">17°</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>
